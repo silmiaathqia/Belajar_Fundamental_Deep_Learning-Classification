@@ -7,7 +7,7 @@
 ![MobileNetV2](https://img.shields.io/badge/MobileNetV2-Transfer%20Learning-green?style=for-the-badge)
 ![Accuracy](https://img.shields.io/badge/Accuracy-90.89%25-success?style=for-the-badge)
 
-**Proyek Akhir Kelas Belajar Machine Learning untuk Pemula — Dicoding**
+**Proyek Akhir Kelas Belajar Fundamental Deep Learning — Dicoding**
 
 *oleh Silmi Azdkiatul Athqia (silmiathqia)*
 

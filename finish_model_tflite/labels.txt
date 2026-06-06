@@ -1,0 +1,15 @@
+Agriculture
+Airport
+Beach
+City
+Desert
+Forest
+Grassland
+Highway
+Lake
+Mountain
+Parking
+Port
+Railway
+Residential
+River

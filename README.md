@@ -1,6 +1,21 @@
 # 🛰️ Klasifikasi Landscape Aerial dengan Deep Learning
 
+<div align="center">
+
+![TensorFlow](https://img.shields.io/badge/TensorFlow-2.18.0-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python&logoColor=white)
+![MobileNetV2](https://img.shields.io/badge/MobileNetV2-Transfer%20Learning-green?style=for-the-badge)
+![Accuracy](https://img.shields.io/badge/Accuracy-90.89%25-success?style=for-the-badge)
+
+**Proyek Akhir Kelas Belajar Machine Learning untuk Pemula — Dicoding**
+
+*oleh Silmi Azdkiatul Athqia (silmiathqia)*
+
+</div>
+
 > Sistem klasifikasi otomatis untuk mengenali 15 jenis landscape dari foto udara menggunakan CNN dan Transfer Learning
+
+---
 
 ## 🌍 Overview Dataset
 
@@ -20,6 +35,8 @@
 | :---------: | :-------: | :-----: | :---------: | :------: |
 |   Forest    | Grassland | Highway |    Lake     | Mountain |
 |   Parking   |   Port    | Railway | Residential |  River   |
+
+---
 
 ## 🧠 Arsitektur Model
 
@@ -45,14 +62,18 @@ Dense (15) - Softmax Output
 - **Fase 2**: Fine-tuning (15 epochs) - Unfreeze 20 layer teratas
 - **Pembagian Data**: 70% Train | 15% Val | 15% Test
 
+---
+
 ## 📈 Hasil Performa
 
 ### 🏆 Performa Model
 
-- **Test Accuracy**: 90.89%
-- **Test Precision**: 91.24%
-- **Test Recall**: 90.89%
-- **Test F1-Score**: 90.91%
+| Metrik | Nilai |
+|---|---|
+| Test Accuracy | **90.89%** |
+| Test Precision | **91.24%** |
+| Test Recall | **90.89%** |
+| Test F1-Score | **90.91%** |
 
 ### 🥇 Kelas Terbaik
 
@@ -67,6 +88,8 @@ Dense (15) - Softmax Output
 - **River**: 97.9% akurasi
 - **Railway**: 98.3% akurasi
 
+---
+
 ## 🚀 Fitur Teknis
 
 ### 🔥 Training Lanjutan
@@ -78,11 +101,14 @@ Dense (15) - Softmax Output
 
 ### 📱 Format Deployment
 
-| Format     | Kegunaan    | File                       |
-| ---------- | ----------- | -------------------------- |
-| Keras      | Development | `finish_model.keras`       |
-| SavedModel | Production  | `finish_model_savedmodel/` |
-| TFLite     | Mobile/Edge | `finish_model.tflite`      |
+| Format | Kegunaan | File |
+|---|---|---|
+| Keras | Development | `finish_model.keras` |
+| SavedModel | Production | `finish_model_savedmodel/` |
+| TFLite | Mobile/Edge | `finish_model.tflite` |
+| TFJS | Web Browser | `finish_model_tfjs/` |
+
+---
 
 ## 🛠️ Cara Penggunaan
 
@@ -102,13 +128,11 @@ PIL (Pillow) version: 11.2.1
 
 ```python
 import tensorflow as tf
+import numpy as np
+from PIL import Image
 
 # Load trained model
 model = tf.keras.models.load_model('finish_model.keras')
-
-# Predict single image
-import numpy as np
-from PIL import Image
 
 # Load dan preprocessing gambar
 img = Image.open('aerial_image.jpg').resize((128, 128))
@@ -127,48 +151,31 @@ print(f"Prediksi: {class_names[predicted_class]}")
 print(f"Confidence: {predictions[0][predicted_class]:.2%}")
 ```
 
-### 3. Training Custom Model
-
-```python
-# Download dataset
-dataset_path = kagglehub.dataset_download("ankit1743/skyview-an-aerial-landscape-dataset")
-
-# Setup data generators dengan augmentation
-train_gen, val_gen, test_gen = setup_data_generators(dataset_path)
-
-# Buat model
-model = create_optimized_cnn_model()
-
-# Training
-history = model.fit(train_gen, validation_data=val_gen, epochs=30)
-```
+---
 
 ## 📊 Struktur Project
 
 ```
-submission
+klasifigambar/
 ├── finish_model.keras
-├───tfjs_model(finish_model_tfjs/)
-| ├───group1-shard1of1.bin
-| └───model.json
-├───tflite(finish_model_tflite/)
-| ├───model.tflite
-| └───label.txt
-├───saved_model(finish_model_savedmodel/)
-| ├───saved_model.pb
-| └───variables
-├───notebook.ipynb
-├───README.md
-└───requirements.txt
+├── Submission_Akhir.ipynb
+├── requirements.txt
+├── README.md
+├── finish_model_savedmodel/
+│   ├── saved_model.pb
+│   └── variables/
+├── finish_model_tfjs/
+│   ├── group1-shard1of4.bin
+│   ├── group1-shard2of4.bin
+│   ├── group1-shard3of4.bin
+│   ├── group1-shard4of4.bin
+│   └── model.json
+└── finish_model_tflite/
+    ├── finish_model.tflite
+    └── labels.txt
 ```
 
-## 🎯 Hasil Visualisasi
-
-Model menghasilkan beberapa visualisasi penting:
-
-- **Training History**: Kurva accuracy dan loss
-- **Confusion Matrix**: Analisis kesalahan prediksi
-- **Top Predictions**: Contoh prediksi terbaik per kelas
+---
 
 ## 🚀 Deployment
 
@@ -179,8 +186,47 @@ Model siap untuk deployment dalam berbagai format:
 - **Server API**: Gunakan SavedModel format
 - **Research**: Gunakan Keras format
 
+---
+
+## 🎓 Sertifikat
+
+<div align="center">
+
+> 🏅 **Belajar Machine Learning untuk Pemula** — Dicoding Indonesia
+>
+> Diperoleh oleh **Silmi Azdkiatul Athqia**
+
+[![Lihat & Verifikasi Sertifikat](https://img.shields.io/badge/🎓%20Lihat%20Sertifikat-Dicoding-06b6d4?style=for-the-badge)](https://www.dicoding.com/certificates/81P2LEW9NZOY)
+
+</div>
+
+---
+
 ## 📝 Credits
 
 - **Dataset**: [Skyview Aerial Dataset](https://www.kaggle.com/datasets/ankit1743/skyview-an-aerial-landscape-dataset)
 - **Original Sources**: AID Dataset & NWPU-Resisc45 Dataset
 - **Architecture**: MobileNetV2 + Custom Layers
+
+---
+
+## 👩‍💻 Author
+
+<div align="center">
+
+**Silmi Azdkiatul Athqia**
+
+[![Dicoding](https://img.shields.io/badge/Dicoding-silmiathqia-blue?style=flat-square)](https://www.dicoding.com/users/silmiathqia)
+[![GitHub](https://img.shields.io/badge/GitHub-silmiaathqia-black?style=flat-square&logo=github)](https://github.com/silmiaathqia)
+
+🎓 Laskar AI 2025 Cohort — Mahasiswa & Fresh Graduate
+
+</div>
+
+---
+
+<div align="center">
+<i>Proyek Klasifikasi Gambar — Belajar Machine Learning untuk Pemula — Dicoding 2025</i>
+<br/>
+<sub>Made with ❤️ by Silmi Azdkiatul Athqia</sub>
+</div>
